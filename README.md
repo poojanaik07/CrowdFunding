@@ -15,3 +15,5 @@ Run the following command in the terminal:
 ```
 
 Access the app at: [http://localhost:8080](http://localhost:8080)
+<img width="1206" height="563" alt="image" src="https://github.com/user-attachments/assets/8ce790e6-6477-4b6c-97d0-c937eeb3785c" />
+
