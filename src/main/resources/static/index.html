@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdFund Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-rocket brand-icon"></i>
+                <h2>Crowd<span class="highlight">Funding</span></h2>
+            </div>
+
+            <nav class="menu">
+                <button class="menu-item active" onclick="showView('dashboard')">
+                    <i class="fa-solid fa-chart-pie"></i> Dashboard
+                </button>
+                <button class="menu-item" onclick="showView('list')">
+                    <i class="fa-solid fa-layer-group"></i> All Campaigns
+                </button>
+                <button class="menu-item" onclick="showView('add')">
+                    <i class="fa-solid fa-plus-circle"></i> New Campaign
+                </button>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Platform Manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="page-title">Dashboard Overview</h1>
+                <div class="actions">
+                    <button class="btn-primary" onclick="showView('add')">+ Create</button>
+                </div>
+            </header>
+
+            <div id="content-area">
+
+                <!-- Dashboard View -->
+                <section id="view-dashboard" class="view-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="icon-box blue"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Raised</h3>
+                                <p class="value">$124,500</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon-box green"><i class="fa-solid fa-rocket"></i></div>
+                            <div class="stat-info">
+                                <h3>Active Campaigns</h3>
+                                <p class="value" id="dashboard-count">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon-box purple"><i class="fa-solid fa-users"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Backers</h3>
+                                <p class="value">3,240</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-section">
+                        <h2>Recent Activity</h2>
+                        <div class="empty-state">
+                            <i class="fa-solid fa-wave-square"></i>
+                            <p>Real-time analytics coming soon.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- List View (CRUD) -->
+                <section id="view-list" class="view-section">
+                    <div class="campaign-grid" id="campaign-list-container">
+                        <!-- Dynamic Content Here -->
+                    </div>
+                </section>
+
+                <!-- Add/Edit View -->
+                <section id="view-add" class="view-section">
+                    <div class="form-container">
+                        <h2 id="form-title">Launch a New Campaign</h2>
+                        <form id="campaign-form" onsubmit="handleFormSubmit(event)">
+                            <input type="hidden" id="campaign-id">
+
+                            <div class="form-group">
+                                <label>Campaign Title</label>
+                                <input type="text" id="title" placeholder="e.g. NextGen Smart Watch" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Funding Goal ($)</label>
+                                <input type="number" id="goal" placeholder="50000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="description" rows="5" placeholder="Tell your story..."
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="showView('list')">Cancel</button>
+                                <button type="submit" class="btn-primary">Save Campaign</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
